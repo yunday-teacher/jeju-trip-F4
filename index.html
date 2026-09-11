@@ -198,6 +198,24 @@
 
   footer{font-size:12.5px;color:var(--ink-faint);text-align:center;padding-top:6px}
 
+  /* ---------- MAP LINKS ---------- */
+  .place{
+    color:inherit;text-decoration:none;
+    background-image:linear-gradient(var(--sea),var(--sea));
+    background-repeat:no-repeat;background-position:0 100%;background-size:100% 1px;
+    padding-bottom:1px;transition:color .15s ease, background-size .15s ease;
+  }
+  .place::after{
+    content:"";display:inline-block;width:12px;height:12px;margin-left:3px;
+    background:currentColor;
+    -webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>') center/contain no-repeat;
+    mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>') center/contain no-repeat;
+    opacity:.45;vertical-align:-1px;transition:opacity .15s ease, transform .15s ease;
+  }
+  .place:hover, .place:focus-visible{color:var(--sea);background-size:100% 100%,100% 1px}
+  .place:hover::after, .place:focus-visible::after{opacity:1;transform:translateY(-1px)}
+  @media (prefers-reduced-motion: reduce){ .place{transition:none} .place::after{transition:none} }
+
   @media (max-width:560px){
     .hero{padding:30px 22px 80px;border-radius:16px}
     .day{padding:22px 16px 10px}
@@ -262,7 +280,7 @@
       <div class="row key">
         <div class="time">10:20 – 11:30</div><div class="dot"></div>
         <div class="what">
-          <b>🍲 점심 — 우진해장국 or 미풍해장국</b>
+          <b>🍲 점심 — <a class="place" href="https://map.naver.com/p/search/우진해장국" target="_blank" rel="noopener">우진해장국</a> or <a class="place" href="https://map.naver.com/p/search/미풍해장국" target="_blank" rel="noopener">미풍해장국</a></b>
           <span class="note">둘 다 제주시내 · 웨이팅 길어서 10시 반쯤이 오히려 나음</span>
         </div>
       </div>
@@ -274,21 +292,21 @@
 
       <div class="row">
         <div class="time">12:15 – 13:00</div><div class="dot"></div>
-        <div class="what"><b>🛍️ 올리브영 제주함덕점</b></div>
+        <div class="what"><b>🛍️ <a class="place" href="https://map.naver.com/p/search/올리브영 제주함덕점" target="_blank" rel="noopener">올리브영 제주함덕점</a></b></div>
       </div>
 
       <div class="row key">
         <div class="time">13:00 – 15:00</div><div class="dot"></div>
         <div class="what">
-          <b>🏊 함덕 해수욕장 수영</b>
-          <span class="note">제주해양레저파크 함덕점</span>
+          <b>🏊 <a class="place" href="https://map.naver.com/p/search/함덕해수욕장" target="_blank" rel="noopener">함덕 해수욕장</a> 수영</b>
+          <span class="note"><a class="place" href="https://map.naver.com/p/search/제주해양레저파크 함덕점" target="_blank" rel="noopener">제주해양레저파크 함덕점</a></span>
         </div>
       </div>
 
       <div class="row">
         <div class="time">15:00 – 16:00</div><div class="dot"></div>
         <div class="what">
-          <b>🐟 선우수산 회 포장</b>
+          <b>🐟 <a class="place" href="https://map.naver.com/p/search/선우수산" target="_blank" rel="noopener">선우수산</a> 회 포장</b>
           <span class="cost">C코스 ₩60,000 · 딱새우회 ₩25,000</span>
         </div>
       </div>
@@ -312,7 +330,7 @@
       <div class="row key">
         <div class="time">19:00 – 20:30</div><div class="dot"></div>
         <div class="what">
-          <b>🐖 '연수동 흑돼지' 푸파</b>
+          <b>🐖 '<a class="place" href="https://map.naver.com/p/search/연수동흑돼지" target="_blank" rel="noopener">연수동 흑돼지</a>' 푸파</b>
           <span class="warn">21:30 영업종료</span>
         </div>
       </div>
@@ -320,7 +338,7 @@
       <div class="row">
         <div class="time">20:30 – 21:30</div><div class="dot"></div>
         <div class="what">
-          <b>🛒 하나로마트 장보기</b>
+          <b>🛒 <a class="place" href="https://map.naver.com/p/search/하나로마트 함덕" target="_blank" rel="noopener">하나로마트</a> 장보기</b>
           <span class="warn">22:00 영업종료 — 밥 먹고 바로 가야 함</span>
         </div>
       </div>
@@ -393,7 +411,7 @@
       <div class="row key">
         <div class="time">15:40 – 17:00</div><div class="dot"></div>
         <div class="what">
-          <b>🦌 노루생태관찰원</b>
+          <b>🦌 <a class="place" href="https://map.naver.com/p/search/노루생태관찰원" target="_blank" rel="noopener">노루생태관찰원</a></b>
           <span class="note">노루 먹이주기 15:30 — 이때 가야 노루가 몰려나옴</span>
           <span class="warn">입장 마감은 폐장 1시간 전</span>
         </div>
@@ -487,6 +505,26 @@
         <li><span class="tick"></span>2일차 옷</li>
       </ul>
     </div>
+
+    <div class="common">
+      <div class="name">여행 필수템 <span>수영 · 뷰티 · 상비</span></div>
+      <ul>
+        <li><span class="tick"></span>선크림 (수영 2시간이라 필수)</li>
+        <li><span class="tick"></span>애프터선 / 진정 로션</li>
+        <li><span class="tick"></span>생리대 · 생리컵</li>
+        <li><span class="tick"></span>진통제 · 소화제 · 멀미약</li>
+        <li><span class="tick"></span>렌즈 · 렌즈케이스 · 안경</li>
+        <li><span class="tick"></span>머리끈 · 헤어핀</li>
+        <li><span class="tick"></span>화장솜 · 면봉</li>
+        <li><span class="tick"></span>여분 속옷 1~2개 더</li>
+        <li><span class="tick"></span>비치백 · 방수 파우치</li>
+        <li><span class="tick"></span>젖은 옷 담을 비닐팩</li>
+        <li><span class="tick"></span>선글라스</li>
+        <li><span class="tick"></span>얇은 가디건 (에어컨/렌트카 대비)</li>
+        <li><span class="tick"></span>물티슈 · 휴대용 티슈</li>
+        <li><span class="tick"></span>보조배터리 · 충전선</li>
+      </ul>
+    </div>
   </section>
 
   <section class="check">
@@ -495,7 +533,7 @@
       <li class="done"><span class="box">✓</span><span>비행기 예약하기</span></li>
       <li class="done"><span class="box">✓</span><span>숙소 예약하기</span></li>
       <li class="todo"><span class="box"></span><span>말타기 예약하기</span></li>
-      <li class="todo"><span class="box"></span><span>렌트카 예약하기</span></li>
+      <li class="done"><span class="box">✓</span><span>렌트카 예약하기</span></li>
     </ul>
   </section>
 
