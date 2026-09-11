@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제주 함덕 1박 2일</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap">
+<style>
+  :root{
+    --sand:#F7F1E4;
+    --paper:#FFFDF8;
+    --ink:#23292B;
+    --ink-soft:#5A6566;
+    --ink-faint:#8D9492;
+    --line:#E2D8C4;
+    --sea:#0F8C86;
+    --sea-wash:#E2F1EE;
+    --tangerine:#E2691C;
+    --tang-wash:#FAE8D8;
+    --hero-from:#0A4F57;
+    --hero-mid:#0F8C86;
+    --hero-to:#3FC2B4;
+    --hero-ink:#FFFDF8;
+    --hero-ink-soft:#CDEBE6;
+    --speck:rgba(35,41,43,.05);
+    --shadow:0 1px 3px rgba(35,41,43,.06), 0 8px 24px -16px rgba(35,41,43,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --sand:#12191A;
+      --paper:#1A2224;
+      --ink:#EEE7D8;
+      --ink-soft:#A6B0AE;
+      --ink-faint:#78827F;
+      --line:#2C3638;
+      --sea:#4FC7BA;
+      --sea-wash:#15302F;
+      --tangerine:#F79654;
+      --tang-wash:#2E2019;
+      --hero-from:#07383E;
+      --hero-mid:#0B6B69;
+      --hero-to:#14968D;
+      --hero-ink:#F4FBF9;
+      --hero-ink-soft:#A8D8D1;
+      --speck:rgba(255,255,255,.035);
+      --shadow:0 1px 3px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --sand:#12191A;
+    --paper:#1A2224;
+    --ink:#EEE7D8;
+    --ink-soft:#A6B0AE;
+    --ink-faint:#78827F;
+    --line:#2C3638;
+    --sea:#4FC7BA;
+    --sea-wash:#15302F;
+    --tangerine:#F79654;
+    --tang-wash:#2E2019;
+    --hero-from:#07383E;
+    --hero-mid:#0B6B69;
+    --hero-to:#14968D;
+    --hero-ink:#F4FBF9;
+    --hero-ink-soft:#A8D8D1;
+    --speck:rgba(255,255,255,.035);
+    --shadow:0 1px 3px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  html{color-scheme:light dark}
+  body{
+    margin:0;
+    background-color:var(--sand);
+    background-image:
+      radial-gradient(var(--speck) 1.1px, transparent 1.2px),
+      radial-gradient(var(--speck) 1px, transparent 1.1px);
+    background-size:26px 26px, 41px 41px;
+    background-position:0 0, 13px 19px;
+    color:var(--ink);
+    font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%}
+  .wrap{max-width:900px;margin:0 auto;padding:26px 18px 72px;display:flex;flex-direction:column;gap:30px}
+
+  .hero{
+    position:relative;overflow:hidden;border-radius:20px;
+    background:linear-gradient(160deg,var(--hero-from) 0%,var(--hero-mid) 52%,var(--hero-to) 100%);
+    color:var(--hero-ink);padding:38px 30px 92px;box-shadow:var(--shadow);
+  }
+  .hero .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--hero-ink-soft);font-weight:600}
+  .hero h1{
+    font-family:"Gowun Batang",serif;font-weight:700;font-size:clamp(32px,7vw,54px);
+    line-height:1.12;margin:10px 0 0;text-wrap:balance;letter-spacing:-.015em;
+  }
+  .hero .sub{margin:12px 0 0;max-width:40ch;color:var(--hero-ink-soft);font-size:14.5px;line-height:1.65}
+  .meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;position:relative;z-index:2}
+  .chip{
+    font-size:12px;padding:5px 12px;border-radius:999px;
+    background:rgba(255,255,255,.16);color:var(--hero-ink);
+    border:1px solid rgba(255,255,255,.22);
+    font-weight:500;font-variant-numeric:tabular-nums;
+  }
+  .waves{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:72px;display:block}
+
+  .day{
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:16px;padding:26px 24px 12px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .day-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px}
+  .day-num{
+    font-family:"Gowun Batang",serif;font-size:15px;font-weight:700;
+    letter-spacing:.14em;line-height:1;color:var(--hero-ink);
+    background:var(--sea);padding:8px 13px;border-radius:999px;
+  }
+  .day-date{font-size:13px;color:var(--ink-soft);font-weight:500}
+  .day-tag{margin-left:auto;font-size:12px;color:var(--ink-faint)}
+
+  .rows{display:flex;flex-direction:column;position:relative}
+  .rows::before{
+    content:"";position:absolute;left:99px;top:8px;bottom:20px;width:1.5px;
+    background:linear-gradient(180deg,var(--line),var(--line) 92%,transparent);
+  }
+  .row{display:grid;grid-template-columns:88px 24px 1fr;gap:0 14px;padding:13px 0;align-items:start;position:relative}
+  .time{
+    font-variant-numeric:tabular-nums;text-align:right;font-size:12.5px;
+    font-weight:500;color:var(--ink-soft);padding-top:3px;white-space:nowrap;
+  }
+  .dot{position:relative;height:22px;display:grid;place-items:center}
+  .dot::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--paper);border:2px solid var(--line)}
+  .row.key .dot::after{background:var(--tangerine);border-color:var(--tangerine);width:11px;height:11px}
+  .row.travel .dot::after{width:5px;height:5px;border:none;background:var(--line)}
+
+  .what{display:flex;flex-direction:column;gap:5px;min-width:0}
+  .what b{font-weight:500;font-size:15.5px;letter-spacing:-.005em}
+  .what .note{font-size:13px;color:var(--ink-faint);line-height:1.55}
+  .row.key .what b{color:var(--tangerine);font-weight:600}
+  .row.travel .what b{color:var(--ink-faint);font-weight:400;font-size:13.5px}
+  .warn{
+    display:inline-block;font-size:11.5px;font-weight:500;color:var(--tangerine);
+    background:var(--tang-wash);padding:3px 9px;border-radius:5px;align-self:flex-start;
+  }
+  .cost{
+    display:inline-block;font-size:12.5px;color:var(--sea);background:var(--sea-wash);
+    padding:3px 9px;border-radius:5px;align-self:flex-start;font-variant-numeric:tabular-nums;
+  }
+
+  .notes{
+    background:var(--sea-wash);border:1px solid var(--line);
+    border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;
+  }
+  h2{font-family:"Gowun Batang",serif;font-size:19px;margin:0;font-weight:700}
+  .notes ol{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:10px}
+  .notes li{font-size:13.5px;color:var(--ink-soft);line-height:1.65}
+  .notes li strong{color:var(--ink);font-weight:600}
+  .notes li::marker{color:var(--sea);font-weight:600}
+
+  .pack{display:flex;flex-direction:column;gap:14px}
+  .pack .lead{font-size:13.5px;color:var(--ink-soft);margin:-4px 0 0}
+  .who{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:16px 17px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);
+  }
+  .card .name{display:flex;align-items:center;gap:8px;font-family:"Gowun Batang",serif;font-size:16px;font-weight:700}
+  .card .name::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tangerine);flex:none}
+  .card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+  .card li{display:flex;align-items:center;gap:9px;font-size:14px}
+  .tick{width:15px;height:15px;border-radius:4px;flex:none;border:1.5px solid var(--line);background:var(--sand)}
+  .common{
+    background:var(--sea-wash);border:1px solid var(--line);border-radius:14px;
+    padding:18px 19px;display:flex;flex-direction:column;gap:11px;
+  }
+  .common .name{display:flex;align-items:center;gap:8px;font-family:"Gowun Batang",serif;font-size:16px;font-weight:700}
+  .common .name span{font-family:"IBM Plex Sans KR",sans-serif;font-size:11.5px;font-weight:500;color:var(--sea);letter-spacing:.04em}
+  .common ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px 14px}
+  .common li{display:flex;align-items:center;gap:9px;font-size:14px}
+  .common .tick{background:var(--paper)}
+
+  .check{display:flex;flex-direction:column;gap:12px}
+  .check ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:8px}
+  .check li{
+    display:flex;align-items:center;gap:10px;font-size:14px;
+    padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--paper);
+  }
+  .box{
+    width:17px;height:17px;border-radius:5px;flex:none;border:1.5px solid var(--ink-faint);
+    display:grid;place-items:center;font-size:11px;color:var(--paper);
+  }
+  .done .box{background:var(--sea);border-color:var(--sea)}
+  .done span:last-child{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:var(--line)}
+  .todo .box{border-color:var(--tangerine);background:var(--tang-wash)}
+  .todo span:last-child{font-weight:500}
+
+  footer{font-size:12.5px;color:var(--ink-faint);text-align:center;padding-top:6px}
+
+  @media (max-width:560px){
+    .hero{padding:30px 22px 80px;border-radius:16px}
+    .day{padding:22px 16px 10px}
+    .rows::before{left:75px}
+    .row{grid-template-columns:66px 22px 1fr;gap:0 10px}
+    .time{font-size:12px}
+    .day-tag{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Jeju · 1박 2일</div>
+    <h1>제주 함덕<br>1박 2일</h1>
+    <p class="sub">에메랄드 함덕 바다에서 수영하고, 회 사다 라면 끓여 먹고, 말 타고 노루 보고 오는 일정.</p>
+    <div class="meta">
+      <span class="chip">DAY 1 · 07:35 김포 출발</span>
+      <span class="chip">DAY 2 · 22:25 김포 도착</span>
+      <span class="chip">🚗 렌트카</span>
+    </div>
+    <svg class="waves" viewBox="0 0 900 72" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,44 C120,20 200,64 320,50 C440,36 520,10 640,26 C760,42 830,58 900,44 L900,72 L0,72 Z" fill="rgba(255,255,255,.16)"/>
+      <path d="M0,56 C110,38 210,72 330,60 C450,48 540,28 660,42 C780,56 840,68 900,58 L900,72 L0,72 Z" fill="rgba(255,255,255,.24)"/>
+      <path d="M0,66 C130,54 230,78 350,68 C470,58 560,46 680,56 C800,66 850,74 900,68 L900,72 L0,72 Z" fill="var(--sand)"/>
+    </svg>
+  </div>
+
+  <section class="day">
+    <div class="day-head">
+      <span class="day-num">DAY 1</span>
+      <span class="day-date">제주시 · 함덕</span>
+      <span class="day-tag">해장국 → 바다 → 회 → 흑돼지</span>
+    </div>
+    <div class="rows">
+
+      <div class="row">
+        <div class="time">6:40</div><div class="dot"></div>
+        <div class="what"><b>공항 집합</b></div>
+      </div>
+
+      <div class="row key">
+        <div class="time">7:35 – 8:50</div><div class="dot"></div>
+        <div class="what"><b>✈️ 김포 → 제주</b></div>
+      </div>
+
+      <div class="row">
+        <div class="time">9:00 – 10:00</div><div class="dot"></div>
+        <div class="what">
+          <b>🚗 렌트카 수령 + 재정비</b>
+          <span class="note">셔틀 이동하고 수속까지 생각보다 오래 걸림</span>
+        </div>
+      </div>
+
+      <div class="row travel">
+        <div class="time">10:00 – 10:20</div><div class="dot"></div>
+        <div class="what"><b>제주시내로 이동 (약 15분)</b></div>
+      </div>
+
+      <div class="row key">
+        <div class="time">10:20 – 11:30</div><div class="dot"></div>
+        <div class="what">
+          <b>🍲 점심 — 우진해장국 or 미풍해장국</b>
+          <span class="note">둘 다 제주시내 · 웨이팅 길어서 10시 반쯤이 오히려 나음</span>
+        </div>
+      </div>
+
+      <div class="row travel">
+        <div class="time">11:30 – 12:15</div><div class="dot"></div>
+        <div class="what"><b>함덕으로 이동 (약 45분)</b></div>
+      </div>
+
+      <div class="row">
+        <div class="time">12:15 – 13:00</div><div class="dot"></div>
+        <div class="what"><b>🛍️ 올리브영 제주함덕점</b></div>
+      </div>
+
+      <div class="row key">
+        <div class="time">13:00 – 15:00</div><div class="dot"></div>
+        <div class="what">
+          <b>🏊 함덕 해수욕장 수영</b>
+          <span class="note">제주해양레저파크 함덕점</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">15:00 – 16:00</div><div class="dot"></div>
+        <div class="what">
+          <b>🐟 선우수산 회 포장</b>
+          <span class="cost">C코스 ₩60,000 · 딱새우회 ₩25,000</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">16:00 – 17:00</div><div class="dot"></div>
+        <div class="what">
+          <b>🏠 숙소 체크인 · 라면 끓이기</b>
+          <span class="note">딱새우 회 먹었으면 새우머리 넣어서 ㅋㅋ</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">17:00 – 19:00</div><div class="dot"></div>
+        <div class="what">
+          <b>🚿 각자 샤워하고 휴식</b>
+          <span class="note">근처 애플망고빙수 파는 곳 있더라 · 커피 마시러 분좋카 가도 돼</span>
+        </div>
+      </div>
+
+      <div class="row key">
+        <div class="time">19:00 – 20:30</div><div class="dot"></div>
+        <div class="what">
+          <b>🐖 '연수동 흑돼지' 푸파</b>
+          <span class="warn">21:30 영업종료</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">20:30 – 21:30</div><div class="dot"></div>
+        <div class="what">
+          <b>🛒 하나로마트 장보기</b>
+          <span class="warn">22:00 영업종료 — 밥 먹고 바로 가야 함</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">21:30 –</div><div class="dot"></div>
+        <div class="what"><b>🍻 숙소 돌아와서 걸스나잇</b></div>
+      </div>
+
+      <div class="row">
+        <div class="time">24:00</div><div class="dot"></div>
+        <div class="what"><b>🌙 ㄹㅈㄷ 개큰기절</b></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="day">
+    <div class="day-head">
+      <span class="day-num">DAY 2</span>
+      <span class="day-date">승마장 · 봉개동</span>
+      <span class="day-tag">말 → 노루 → 귀가</span>
+    </div>
+    <div class="rows">
+
+      <div class="row">
+        <div class="time">~ 9:00</div><div class="dot"></div>
+        <div class="what"><b>🌙 ㄹㅈㄷ 개큰기절</b></div>
+      </div>
+
+      <div class="row">
+        <div class="time">9:00 – 11:00</div><div class="dot"></div>
+        <div class="what"><b>각자 샤워하고 재정비 후 체크아웃</b></div>
+      </div>
+
+      <div class="row">
+        <div class="time">11:00 – 12:30</div><div class="dot"></div>
+        <div class="what">
+          <b>점심식사</b>
+          <span class="note">장소 미정</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">12:30 – 13:30</div><div class="dot"></div>
+        <div class="what">
+          <b>☕ 카페</b>
+          <span class="note">장소 미정</span>
+        </div>
+      </div>
+
+      <div class="row travel">
+        <div class="time">13:30 – 14:00</div><div class="dot"></div>
+        <div class="what"><b>이동</b></div>
+      </div>
+
+      <div class="row key">
+        <div class="time">14:00 – 15:00</div><div class="dot"></div>
+        <div class="what">
+          <b>🐎 말 타고 다그닥 다그닥</b>
+          <span class="warn">예약 아직 안 함</span>
+        </div>
+      </div>
+
+      <div class="row travel">
+        <div class="time">15:00 – 15:40</div><div class="dot"></div>
+        <div class="what"><b>이동</b></div>
+      </div>
+
+      <div class="row key">
+        <div class="time">15:40 – 17:00</div><div class="dot"></div>
+        <div class="what">
+          <b>🦌 노루생태관찰원</b>
+          <span class="note">노루 먹이주기 15:30 — 이때 가야 노루가 몰려나옴</span>
+          <span class="warn">입장 마감은 폐장 1시간 전</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">17:30 – 18:45</div><div class="dot"></div>
+        <div class="what">
+          <b>🍽️ 저녁식사</b>
+          <span class="note">장소 미정 · 공항 방향으로</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">19:00</div><div class="dot"></div>
+        <div class="what">
+          <b>🚗 렌트카 반납</b>
+          <span class="note">셔틀 이동까지 30~40분 잡기</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="time">19:40</div><div class="dot"></div>
+        <div class="what"><b>공항 도착 · 수속</b></div>
+      </div>
+
+      <div class="row key">
+        <div class="time">21:10 – 22:25</div><div class="dot"></div>
+        <div class="what"><b>✈️ 제주 → 김포</b></div>
+      </div>
+
+      <div class="row">
+        <div class="time">23:40</div><div class="dot"></div>
+        <div class="what">
+          <b>🚇 공항철도 막차</b>
+          <span class="note">모두들 안녕 😘</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="notes">
+    <h2>원래 일정에서 바꾼 것</h2>
+    <ol>
+      <li><strong>유니클로 감귤티 → 올리브영 함덕점.</strong> 함덕 도착 직후 자리로 옮김.</li>
+      <li><strong>점심을 제주시내에서 먼저.</strong> 우진해장국·미풍해장국 둘 다 제주시내라 함덕 가기 전에 들러야 함. 웨이팅까지 생각하면 10시 반 입장이 딱 좋음.</li>
+      <li><strong>하나로마트가 제일 큰 펑크였음.</strong> 흑돼지 21:30 종료, 마트 22:00 마감이라 밥 먹고 가면 30분 안에 장 봐야 함. 저녁을 19시로 당김.</li>
+      <li><strong>노루생태관찰원 17시는 못 들어갈 수 있음.</strong> 입장 마감이 폐장 1시간 전인 데다 먹이주기가 15:30이라 15:40 도착으로 당김.</li>
+      <li><strong>비행기 놓칠 뻔.</strong> 21:10 출발이면 렌트카 반납 + 수속까지 19:40엔 공항에 있어야 함.</li>
+    </ol>
+  </section>
+
+  <section class="pack">
+    <h2>짐 체크리스트</h2>
+    <p class="lead">아래 세 개는 한 명만 챙기면 되는 것들 — 겹치게 들고 오지 말기 🙅</p>
+
+    <div class="who">
+      <div class="card">
+        <div class="name">채은</div>
+        <ul>
+          <li><span class="tick"></span>트리트먼트</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="name">다원</div>
+        <ul>
+          <li><span class="tick"></span>스킨케어</li>
+          <li><span class="tick"></span>클렌징</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="name">윤서</div>
+        <ul>
+          <li><span class="tick"></span>치약</li>
+          <li><span class="tick"></span>봉고데기</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="common">
+      <div class="name">공통 <span>각자 챙기기</span></div>
+      <ul>
+        <li><span class="tick"></span>수영 후 덮을 수건</li>
+        <li><span class="tick"></span>모자</li>
+        <li><span class="tick"></span>수영할 때 입을 거</li>
+        <li><span class="tick"></span>속옷</li>
+        <li><span class="tick"></span>잠옷</li>
+        <li><span class="tick"></span>2일차 옷</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="check">
+    <h2>예약 체크리스트</h2>
+    <ul>
+      <li class="done"><span class="box">✓</span><span>비행기 예약하기</span></li>
+      <li class="done"><span class="box">✓</span><span>숙소 예약하기</span></li>
+      <li class="todo"><span class="box"></span><span>말타기 예약하기</span></li>
+      <li class="todo"><span class="box"></span><span>렌트카 예약하기</span></li>
+    </ul>
+  </section>
+
+  <footer>말타기 장소와 렌트카 반납 지점 정해지면 이동 시간 더 정확하게 잡을 수 있어요 🍊</footer>
+
+</div>
+
+</body>
+</html>
